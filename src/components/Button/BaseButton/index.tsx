@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default () => {
-  return <></>;
+const BaseButton: React.FC = ({ children }) => {
+  return <>{children}</>;
 };
+
+export default BaseButton;
