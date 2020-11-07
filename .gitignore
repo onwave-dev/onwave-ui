@@ -1,7 +1,6 @@
 .idea/
 .vscode/
 .github/
-.storybook/
 
 node_modules/
 dist/
