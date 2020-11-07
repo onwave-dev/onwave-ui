@@ -9,7 +9,7 @@
   </a>
   <a href="https://github.com/onwave-dev/onwave-ui/blob/master/LICENSE">
     <img
-      src="https://img.shields.io/github/license/mashape/apistatus.svg"
+      src="https://img.shields.io/github/license/onwave-dev/onwave-ui.svg"
       alt="MIT"
     >
   </a>
@@ -21,7 +21,6 @@
 npm install --save @onwave/ui
 yarn add @onwave/ui
 ```
-
 
 ## storybook
 

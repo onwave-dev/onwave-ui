@@ -1,6 +1,6 @@
 {
   "name": "@onwave/ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "onwave ui library",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -28,7 +28,7 @@
     "type": "git",
     "url": "git+https://github.com/onwave-dev/onwave-ui.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/onwave-dev/onwave-ui/issues"
   },
