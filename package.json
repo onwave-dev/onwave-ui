@@ -1,0 +1,31 @@
+{
+  "name": "@onwave/ui",
+  "version": "1.0.0",
+  "description": "onwave ui library",
+  "browser": "dist/index.js",
+  "contributors": [
+    {
+      "name": "kang-heewon",
+      "email": "heewon.dev@gmail.com",
+      "url": "http://github.com/kang-heewon"
+    }
+  ],
+  "keywords": [
+    "ui",
+    "onwave",
+    "react ui library"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onwave-dev/onwave-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onwave-dev/onwave-ui/issues"
+  },
+  "homepage": "https://github.com/onwave-dev/onwave-ui#readme"
+}
