@@ -1,10 +1,11 @@
-import React from "react";
 import styled from "@emotion/styled";
+import React from "react";
 
 type Props = {
   color?: string;
   backgroundColor?: string;
   fontSize?: number;
+  onClick?: () => void;
 };
 
 export const BaseButton: React.FC<Props> = ({
@@ -12,12 +13,14 @@ export const BaseButton: React.FC<Props> = ({
   backgroundColor,
   color,
   fontSize,
+  onClick,
 }) => {
   return (
     <Content
       backgroundColor={backgroundColor}
       color={color}
       fontSize={fontSize}
+      onClick={onClick}
     >
       {children}
     </Content>
@@ -34,6 +37,6 @@ const Content = styled.div<{
   border-radius: 48px;
   background-color: ${({ backgroundColor }) => backgroundColor ?? "#ff4545"};
   color: ${({ color }) => color ?? "white"};
-  font-szie: ${({ fontSize }) => fontSize ?? "36px"};
+  font-size: ${({ fontSize }) => fontSize ?? "36px"};
   cursor: pointer;
 `;
