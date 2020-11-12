@@ -1,8 +1,7 @@
-import { NextPage } from "next";
-import Link from "next/link";
 import React from "react";
 import { UrlObject } from "url";
-import BaseButton from "../BaseButton";
+import { BaseButton } from "../BaseButton";
+import Link from "next/link";
 
 export type NextButtonProps = {
   href: string | UrlObject;
@@ -10,7 +9,7 @@ export type NextButtonProps = {
   backgroundColor?: string;
 };
 
-export const NextButton: NextPage<NextButtonProps> = ({
+export const NextButton: React.FC<NextButtonProps> = ({
   href,
   children,
   color,

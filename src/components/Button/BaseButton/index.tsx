@@ -6,15 +6,17 @@ type Props = {
   backgroundColor?: string;
 };
 
-const BaseButton: React.FC<Props> = ({ children, backgroundColor, color }) => {
+export const BaseButton: React.FC<Props> = ({
+  children,
+  backgroundColor,
+  color,
+}) => {
   return (
     <Content backgroundColor={backgroundColor} color={color}>
       {children}
     </Content>
   );
 };
-
-export default BaseButton;
 
 const Content = styled.div<{ backgroundColor?: string; color?: string }>`
   display: inline-block;
