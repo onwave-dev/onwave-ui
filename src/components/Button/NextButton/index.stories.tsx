@@ -1,6 +1,6 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { NextButton, NextButtonProps } from ".";
+import { NextButton, NextButtonProps } from "../NextButton";
 
 export default {
   title: "components/button/NextButton",

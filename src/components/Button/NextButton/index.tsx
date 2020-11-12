@@ -7,6 +7,7 @@ export type NextButtonProps = {
   href: string | UrlObject;
   color?: string;
   backgroundColor?: string;
+  fontSize?: number;
 };
 
 export const NextButton: React.FC<NextButtonProps> = ({
@@ -14,11 +15,16 @@ export const NextButton: React.FC<NextButtonProps> = ({
   children,
   color,
   backgroundColor,
+  fontSize,
 }) => {
   return (
     <Link href={href}>
       <a>
-        <BaseButton color={color} backgroundColor={backgroundColor}>
+        <BaseButton
+          color={color}
+          backgroundColor={backgroundColor}
+          fontSize={fontSize}
+        >
           {children}
         </BaseButton>
       </a>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Story, Meta } from "@storybook/react";
 
-import { TextButton, TextButtonProps } from ".";
+import { TextButton, TextButtonProps } from "../";
 
 export default {
   title: "components/button/TextButton",
