@@ -1,8 +1,10 @@
-import React from 'react';
-import BaseButton from '../BaseButton';
+import styled from "@emotion/styled";
+import React from "react";
 
 export type TextButtonProps = {};
 
 export const TextButton: React.FC<TextButtonProps> = ({ children }) => {
-  return <BaseButton>{children}</BaseButton>;
+  return <Hello>{children}</Hello>;
 };
+
+const Hello = styled.div``;

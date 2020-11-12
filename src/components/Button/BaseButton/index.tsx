@@ -1,7 +1,26 @@
-import React from 'react';
+import React from "react";
+import styled from "@emotion/styled";
 
-const BaseButton: React.FC = ({ children }) => {
-  return <>{children}</>;
+type Props = {
+  color?: string;
+  backgroundColor?: string;
+};
+
+const BaseButton: React.FC<Props> = ({ children, backgroundColor, color }) => {
+  return (
+    <Content backgroundColor={backgroundColor} color={color}>
+      {children}
+    </Content>
+  );
 };
 
 export default BaseButton;
+
+const Content = styled.div<{ backgroundColor?: string; color?: string }>`
+  display: inline-block;
+  padding: 12px 40px 12px 40px;
+  border-radius: 48px;
+  background-color: ${({ backgroundColor }) => backgroundColor ?? "#ff4545"};
+  color: ${({ color }) => color ?? "white"};
+  cursor: pointer;
+`;
