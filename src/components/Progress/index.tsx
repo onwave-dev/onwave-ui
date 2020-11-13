@@ -3,7 +3,14 @@ import React from "react";
 
 type Props = {
   percent: number;
+  strokeColor?: string;
 };
-export const ProgressBar: React.FC<Props> = ({ percent }) => {
-  return <Line percent={percent} strokeWidth={6} strokeColor="#FE8C6A" />;
+export const ProgressBar: React.FC<Props> = ({ percent, strokeColor }) => {
+  return (
+    <Line
+      percent={percent}
+      strokeWidth={1}
+      strokeColor={strokeColor ?? "#FE8C6A"}
+    />
+  );
 };
