@@ -5,5 +5,5 @@ type Props = {
   percent: number;
 };
 export const ProgressBar: React.FC<Props> = ({ percent }) => {
-  return <Line percent={percent} strokeWidth={4} strokeColor="#ff6565" />;
+  return <Line percent={percent} strokeWidth={6} strokeColor="#FE8C6A" />;
 };

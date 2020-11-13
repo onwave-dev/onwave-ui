@@ -9,11 +9,11 @@ export const Portal: React.FC<Props> = ({ children, container }) => {
   const tempElement: HTMLDivElement = document.createElement("div");
   tempElement.className = "portal";
   useEffect(() => {
-    if (!container) {
+    if (!container && document) {
       document.body.appendChild(tempElement);
     }
     return () => {
-      if (!container) {
+      if (!container && document) {
         document.body.removeChild(tempElement);
       }
     };

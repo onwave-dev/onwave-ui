@@ -1,13 +1,8 @@
 import React from "react";
-import { toast, ToastContainer } from "react-toastify";
-import { Portal } from "../Portal";
+import { toast, ToastContainer as ToastRaw } from "react-toastify";
 
-export const Toast = () => {
-  return (
-    <Portal>
-      <ToastContainer />
-    </Portal>
-  );
+export const ToastContainer = () => {
+  return <ToastRaw />;
 };
 
 export const useToast = (text: string) => {

@@ -1,4 +1,6 @@
+import autoprefixer from "autoprefixer";
 import path from "path";
+import cssimport from "postcss-import";
 import babel from "rollup-plugin-babel";
 import commonjs from "rollup-plugin-commonjs";
 import resolve from "rollup-plugin-node-resolve";
@@ -9,13 +11,17 @@ import url from "rollup-plugin-url";
 import visualizer from "rollup-plugin-visualizer";
 import pkg from "./package.json";
 
-const extensions = [".js", ".jsx", ".ts", ".tsx"];
-const dependencies = ["rc-progress"];
+const extensions = [".js", ".jsx", ".ts", ".tsx", ".css"];
+const dependencies = ["rc-progress", "react-toastify"];
 
 const getPlugins = (format) => [
   external(),
   postcss({
+    sourceMap: true,
+    extract: true,
+    minimize: true,
     modules: true,
+    plugins: [cssimport(), autoprefixer()],
   }),
   url(),
   typescript({
@@ -27,7 +33,7 @@ const getPlugins = (format) => [
   resolve({
     extensions,
   }),
-  commonjs({ extensions: [".js", ".ts"] }),
+  commonjs({ extensions: [".js", ".ts", ".css"] }),
   babel({
     exclude: "node_modules/**",
     extensions,
