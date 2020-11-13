@@ -17,7 +17,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["./types"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "build"]
