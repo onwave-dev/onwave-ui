@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Container = styled.div<{ color: string }>`
+const Container = styled.div<{ color?: string }>`
   background-color: ${({ color }) => color ?? "#fff"};
   padding: padding;
   width: 100%;
