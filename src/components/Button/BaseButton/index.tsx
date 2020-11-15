@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
+import { BreakPoints } from "../../../utils/mediaQuery";
 
 type Props = {
   color?: string;
@@ -37,6 +38,9 @@ const Content = styled.div<{
   border-radius: 48px;
   background-color: ${({ backgroundColor }) => backgroundColor ?? "#ff4545"};
   color: ${({ textColor }) => textColor ?? "white"};
-  font-size: ${({ size }) => size ?? "36px"};
+  font-size: ${({ size }) => size ?? "36"}px;
   cursor: pointer;
+  ${BreakPoints.sm`
+    padding: 12px 16px 12px 16px;
+  `}
 `;
