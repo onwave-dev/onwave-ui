@@ -1,9 +1,10 @@
+import Link from "next/link";
 import React from "react";
 import { UrlObject } from "url";
 import { BaseButton } from "../BaseButton";
-import Link from "next/link";
 
 export type NextButtonProps = {
+  className?: string;
   href: string | UrlObject;
   color?: string;
   backgroundColor?: string;
@@ -11,6 +12,7 @@ export type NextButtonProps = {
 };
 
 export const NextButton: React.FC<NextButtonProps> = ({
+  className,
   href,
   children,
   color,
@@ -18,16 +20,18 @@ export const NextButton: React.FC<NextButtonProps> = ({
   fontSize,
 }) => {
   return (
-    <Link href={href}>
-      <a>
-        <BaseButton
-          color={color}
-          backgroundColor={backgroundColor}
-          fontSize={fontSize}
-        >
-          {children}
-        </BaseButton>
-      </a>
-    </Link>
+    <div className={className}>
+      <Link href={href}>
+        <a>
+          <BaseButton
+            color={color}
+            backgroundColor={backgroundColor}
+            fontSize={fontSize}
+          >
+            {children}
+          </BaseButton>
+        </a>
+      </Link>
+    </div>
   );
 };

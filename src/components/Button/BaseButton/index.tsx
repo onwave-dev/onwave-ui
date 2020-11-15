@@ -18,8 +18,8 @@ export const BaseButton: React.FC<Props> = ({
   return (
     <Content
       backgroundColor={backgroundColor}
-      color={color}
-      fontSize={fontSize}
+      textColor={color}
+      size={fontSize}
       onClick={onClick}
     >
       {children}
@@ -29,14 +29,14 @@ export const BaseButton: React.FC<Props> = ({
 
 const Content = styled.div<{
   backgroundColor?: string;
-  color?: string;
-  fontSize?: number;
+  textColor?: string;
+  size?: number;
 }>`
   display: inline-block;
-  padding: 12px 40px 12px 40px;
+  padding: 12px 36px 12px 36px;
   border-radius: 48px;
   background-color: ${({ backgroundColor }) => backgroundColor ?? "#ff4545"};
-  color: ${({ color }) => color ?? "white"};
-  font-size: ${({ fontSize }) => fontSize ?? "36px"};
+  color: ${({ textColor }) => textColor ?? "white"};
+  font-size: ${({ size }) => size ?? "36px"};
   cursor: pointer;
 `;
