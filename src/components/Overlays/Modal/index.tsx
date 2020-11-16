@@ -34,7 +34,7 @@ export const Modal: React.FC<Props> = ({
   };
 
   if (!canUseDom) {
-    return opener || <React.Fragment />;
+    return opener ?? <React.Fragment />;
   }
   const clonedOpener =
     opener &&
