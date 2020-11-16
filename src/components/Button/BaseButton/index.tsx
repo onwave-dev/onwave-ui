@@ -41,6 +41,6 @@ const Content = styled.div<{
   font-size: ${({ size }) => size ?? "36"}px;
   cursor: pointer;
   ${BreakPoints.sm`
-    padding: 12px 16px 12px 16px;
+    padding: 12px 24px 12px 24px;
   `}
 `;
