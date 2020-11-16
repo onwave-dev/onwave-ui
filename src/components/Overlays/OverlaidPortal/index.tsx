@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Portal } from "..";
-import { useDom } from "../../../utils/useDom";
 import styled from "@emotion/styled";
+import React, { useEffect } from "react";
+import { useDom } from "../../../utils/useDom";
+import { Portal } from "../Portal";
 
 type Props = {
   isOpen: boolean;
@@ -20,6 +20,7 @@ export const OverlaidPortal: React.FC<Props> = ({
   onClose,
 }) => {
   const canUseDom = useDom();
+
   useEffect(() => {
     if (canUseDom) {
       document.body.style.overflow = isOpen ? "hidden" : "";
@@ -29,7 +30,11 @@ export const OverlaidPortal: React.FC<Props> = ({
         document.body.style.overflow = "";
       }
     };
-  }, [isOpen]);
+  }, [isOpen, canUseDom]);
+
+  if (!canUseDom) {
+    return <React.Fragment />;
+  }
 
   return (
     <Portal container={document.body}>
@@ -62,7 +67,7 @@ export const Overlay = styled.div<{
   right: 0;
   bottom: 0;
   overflow: hidden;
-  background-color: ${(props) => props.overlayColor ?? "transparent"};
+  background-color: ${(props) => props.overlayColor ?? "rgba(0, 0, 0, 0.72)"};
   opacity: ${(props) => (props.visible ? "1" : "0")};
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
   overscroll-behavior: contain;
