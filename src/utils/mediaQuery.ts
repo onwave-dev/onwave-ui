@@ -1,28 +1,24 @@
+import { css } from "@emotion/react";
+import { CSSInterpolation } from "@emotion/serialize";
 export class BreakPoints {
-  static lg(template: TemplateStringsArray, ...array: any[]) {
-    return `
-      @media only screen and (max-width: 1024px){
-        ${template.reduce((result, item, index) => {
-          return `${result} ${array[index - 1] ?? ""}${item}`;
-        })}
+  static lg(template: TemplateStringsArray, ...array: Array<CSSInterpolation>) {
+    return css`
+      @media only screen and (max-width: 1024px) {
+        ${css(template, ...array)};
       }
     `;
   }
-  static md(template: TemplateStringsArray, ...array: any[]) {
-    return `
-      @media only screen and (max-width: 768px){
-         ${template.reduce((result, item, index) => {
-           return `${result} ${array[index - 1] ?? ""}${item}`;
-         })}
+  static md(template: TemplateStringsArray, ...array: Array<CSSInterpolation>) {
+    return css`
+      @media only screen and (max-width: 768px) {
+        ${css(template, ...array)};
       }
     `;
   }
-  static sm(template: TemplateStringsArray, ...array: any[]) {
-    return `
-      @media only screen and (max-width: 481px){
-         ${template.reduce((result, item, index) => {
-           return `${result} ${array[index - 1] ?? ""}${item}`;
-         })}
+  static sm(template: TemplateStringsArray, ...array: Array<CSSInterpolation>) {
+    return css`
+      @media only screen and (max-width: 481px) {
+        ${css(template, ...array)};
       }
     `;
   }
