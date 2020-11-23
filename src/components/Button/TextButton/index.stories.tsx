@@ -1,6 +1,5 @@
-import React from "react";
-import { Story, Meta } from "@storybook/react";
-
+import { Meta, Story } from "@storybook/react";
+import React, { PropsWithChildren } from "react";
 import { TextButton, TextButtonProps } from "../";
 
 export default {
@@ -11,7 +10,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<TextButtonProps> = (args) => <TextButton {...args} />;
+const Template: Story<PropsWithChildren<TextButtonProps>> = (args) => (
+  <TextButton {...args} />
+);
 
 export const SimpleTextButton = Template.bind({});
 SimpleTextButton.args = {

@@ -1,5 +1,5 @@
-import React from "react";
-import { Story, Meta } from "@storybook/react";
+import { Meta, Story } from "@storybook/react";
+import React, { PropsWithChildren } from "react";
 import { NextButton, NextButtonProps } from "../NextButton";
 
 export default {
@@ -12,7 +12,9 @@ export default {
   },
 } as Meta;
 
-const Template: Story<NextButtonProps> = (args) => <NextButton {...args} />;
+const Template: Story<PropsWithChildren<NextButtonProps>> = (args) => (
+  <NextButton {...args} />
+);
 
 export const SimpleNextButton = Template.bind({});
 SimpleNextButton.args = {

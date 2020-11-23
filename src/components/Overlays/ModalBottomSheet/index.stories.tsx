@@ -1,5 +1,5 @@
 import { Meta, Story } from "@storybook/react";
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import { ModalBottomSheet, ModalBottomSheetProps } from ".";
 
 export default {
@@ -8,7 +8,7 @@ export default {
   argTypes: {},
 } as Meta;
 
-const Template: Story<ModalBottomSheetProps> = (args) => (
+const Template: Story<PropsWithChildren<ModalBottomSheetProps>> = (args) => (
   <ModalBottomSheet {...args} />
 );
 
