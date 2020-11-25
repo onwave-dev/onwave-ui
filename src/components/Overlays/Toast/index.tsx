@@ -5,8 +5,17 @@ export const ToastContainer = () => {
   return <ToastRaw />;
 };
 
-export const useToast = (text: string) => {
-  return () => {
-    toast(text);
+export const useToast = (
+  text?: string,
+  type?: "success" | "info" | "error" | "warning" | "dark"
+) => {
+  return (content?: string) => {
+    const message = text ?? content;
+
+    if (type) {
+      toast[type](message);
+      return;
+    }
+    toast(message);
   };
 };
