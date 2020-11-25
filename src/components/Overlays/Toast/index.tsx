@@ -14,7 +14,7 @@ export const useToast = (
   type?: "success" | "info" | "error" | "warning" | "dark"
 ) => {
   return (option?: ToastOptions, content?: string) => {
-    const message = text ?? content;
+    const message = content ?? text;
     const options = { autoClose: 3500, ...option };
 
     if (type) {
