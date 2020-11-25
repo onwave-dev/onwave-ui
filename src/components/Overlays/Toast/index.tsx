@@ -13,7 +13,7 @@ export const useToast = (
   text?: string,
   type?: "success" | "info" | "error" | "warning" | "dark"
 ) => {
-  return (content?: string, option?: ToastOptions) => {
+  return (option?: ToastOptions, content?: string) => {
     const message = text ?? content;
     const options = { autoClose: 3500, ...option };
 
