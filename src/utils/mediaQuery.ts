@@ -30,15 +30,24 @@ export type BreakPointSize = {
 };
 
 export const getTypoBreakPoints = (lg?: number, md?: number, sm?: number) => {
-  return `
-  ${BreakPoints.lg`
+  return css`
+  ${
+    lg &&
+    BreakPoints.lg`
     font-size: ${lg}px;
-  `}
-  ${BreakPoints.md`
+  `
+  }
+  ${
+    md &&
+    BreakPoints.md`
     font-size: ${md}px;
-  `}
-  ${BreakPoints.sm`
+  `
+  }
+  ${
+    sm &&
+    BreakPoints.sm`
     font-size: ${sm}px;
-  `}
+  `
+  }
   `;
 };
