@@ -22,9 +22,12 @@ const UserContext = React.createContext<UserState>({
 
 export const useUserContext = () => useContext(UserContext);
 
-export const UserProvider: NextPage = ({ children }) => {
+export const UserProvider: NextPage<{ fetchUser: (token: string) => void }> = ({
+  fetchUser,
+  children,
+}) => {
   const [user, setUser] = useState<any | undefined>();
-  const { isLoggedIn, token } = useAuthContext();
+  const { token } = useAuthContext();
 
   const setUserLoggedIn = useCallback((user: any) => {
     localStorage.setItem("user", JSON.stringify(user));
@@ -36,7 +39,8 @@ export const UserProvider: NextPage = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (token) {
+      fetchUser(token);
     }
   }, [token]);
 
