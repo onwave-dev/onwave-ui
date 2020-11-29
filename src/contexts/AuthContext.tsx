@@ -25,20 +25,23 @@ const AuthContext = React.createContext<AuthState>({
 
 export const useAuthContext = () => useContext(AuthContext);
 
-export const AuthProvider: NextPage = ({ children }) => {
+export const AuthProvider: NextPage<{ tokenName: string }> = ({
+  children,
+  tokenName,
+}) => {
   const [token, setToken] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const setLoggedIn = useCallback((token: string) => {
-    localStorage.setItem("token", token);
+    localStorage.setItem(tokenName, token);
     setToken(token);
   }, []);
   const setLoggedOut = useCallback(() => {
-    localStorage.removeItem("token");
+    localStorage.removeItem(tokenName);
     setToken(undefined);
   }, []);
 
   useEffect(() => {
-    const localToken = localStorage.getItem("token");
+    const localToken = localStorage.getItem(tokenName);
     if (localToken) {
       setLoggedIn(localToken);
     }
