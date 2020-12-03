@@ -52,14 +52,8 @@ const Header = styled.div<{ isOpen: boolean }>`
   ${({ isOpen }) => (isOpen ? "padding-top: 24px;" : undefined)};
 `;
 
-const Title = styled.span`
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.3px;
+const Title = styled.h2`
   margin: 0px;
-  color: rgb(27, 28, 29);
-  font-weight: bold;
-  transition: font-size 0.4s ease-in-out;
 `;
 
 const Content = styled.div`

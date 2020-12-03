@@ -106,7 +106,7 @@ const DialogHead = styled.div`
   margin-bottom: 16px;
 `;
 
-const DialogTitle = styled.span`
+const DialogTitle = styled.h2`
   flex: auto;
   white-space: pre-line;
   word-break: break-all;
