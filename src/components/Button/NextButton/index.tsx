@@ -8,7 +8,7 @@ export type NextButtonProps = {
   href: string | UrlObject;
   color?: string;
   backgroundColor?: string;
-  fontSize?: number;
+  size?: number;
 };
 
 export const NextButton: React.FC<NextButtonProps> = ({
@@ -17,7 +17,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
   children,
   color,
   backgroundColor,
-  fontSize,
+  size,
 }) => {
   return (
     <div className={className}>
@@ -26,7 +26,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
           <BaseButton
             color={color}
             backgroundColor={backgroundColor}
-            fontSize={fontSize}
+            size={size}
           >
             {children}
           </BaseButton>
