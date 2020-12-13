@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { BreakPoints } from "../../../utils/mediaQuery";
 
 type Props = {
   color?: string;
   backgroundColor?: string;
-  fontSize?: number;
+  size?: number;
   onClick?: () => void;
 };
 
@@ -13,14 +12,14 @@ export const BaseButton: React.FC<Props> = ({
   children,
   backgroundColor,
   color,
-  fontSize,
+  size,
   onClick,
 }) => {
   return (
     <Content
       backgroundColor={backgroundColor}
       textColor={color}
-      size={fontSize}
+      size={size}
       onClick={onClick}
     >
       {children}
@@ -34,13 +33,10 @@ const Content = styled.div<{
   size?: number;
 }>`
   display: inline-block;
-  padding: 12px 36px 12px 36px;
-  border-radius: 48px;
+  padding: 12px 24px 12px 24px;
+  border-radius: 50px;
   background-color: ${({ backgroundColor }) => backgroundColor ?? "#ff4545"};
   color: ${({ textColor }) => textColor ?? "white"};
   font-size: ${({ size }) => size ?? "36"}px;
   cursor: pointer;
-  ${BreakPoints.sm`
-    padding: 12px 24px 12px 24px;
-  `}
 `;
