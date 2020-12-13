@@ -11,7 +11,7 @@ import { Toast, ToastProps } from "../Toast/Toast";
 export type ToastData = ToastProps & { key: string };
 
 type Props = {
-  addToast: RefObject<(toast: ToastData) => string>;
+  addToast: RefObject<(toast: ToastProps) => string>;
   removeToast: RefObject<(key: string) => void>;
   container: HTMLElement;
 };

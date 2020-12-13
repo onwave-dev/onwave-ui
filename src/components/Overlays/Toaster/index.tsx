@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useDom } from "../../../utils";
-import { ToastContainer, ToastData } from "../ToastContainer";
+import { ToastProps } from "../Toast/Toast";
+import { ToastContainer } from "../ToastContainer";
 
 export const Toaster = () => {
-  const addToast = React.createRef<(toast: ToastData) => string>();
+  const addToast = React.createRef<(toast: ToastProps) => string>();
   const removeToast = React.createRef<(key: string) => void>();
   const canUseDom = useDom();
   if (canUseDom) {

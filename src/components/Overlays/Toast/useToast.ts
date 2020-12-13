@@ -1,13 +1,13 @@
-import { ToastData } from "../ToastContainer";
 import { toaster } from "../Toaster";
+import { ToastProps } from "./Toast";
 
-export const useToast = (toastData: ToastData) => {
-  const show = () => {
-    return toaster?.addToast(toastData);
+export const useToast = (initial?: ToastProps) => {
+  const show = (message: string) => {
+    return toaster?.addToast({ ...initial, message });
   };
 
-  const dismiss = () => {
-    toaster?.removeToast(toastData.key);
+  const dismiss = (key: string) => {
+    toaster?.removeToast(key);
   };
 
   return { show, dismiss };
