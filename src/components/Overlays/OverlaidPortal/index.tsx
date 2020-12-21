@@ -61,14 +61,15 @@ export const Overlay = styled.div<{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: ${(props) => props.zIndex};
+  z-index: ${({ zIndex }) => zIndex ?? "501"};
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   overflow: hidden;
-  background-color: ${(props) => props.overlayColor ?? "rgba(0, 0, 0, 0.72)"};
-  opacity: ${(props) => (props.visible ? "1" : "0")};
-  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+  background-color: ${({ overlayColor }) =>
+    overlayColor ?? "rgba(0, 0, 0, 0.72)"};
+  opacity: ${({ visible }) => (visible ? "1" : "0")};
+  visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
   overscroll-behavior: contain;
 `;

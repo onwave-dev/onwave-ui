@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { BreakPoints } from "../../../utils/mediaQuery";
-import { useDom } from "../../../utils/useDom";
+import { BreakPoints } from "../../../core";
+import { useDom } from "../../../utils";
 import { OverlaidPortal } from "../OverlaidPortal";
 
 export type ModalBottomSheetProps = {
@@ -67,9 +67,7 @@ export const ModalBottomSheet: React.FC<ModalBottomSheetProps> = ({
 const StyledOverlaidPortal = styled(OverlaidPortal)<{ isOpen: boolean }>`
   transition: ${({ isOpen }) => !isOpen && `visibility 0s linear 225ms,`}
     opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  ${BreakPoints.sm`
-    justify-content: flex-end;
-  `};
+  ${`${BreakPoints.media.sm}`};
 `;
 
 const Dialog = styled.div<{ isOpen: boolean }>`
@@ -81,7 +79,7 @@ const Dialog = styled.div<{ isOpen: boolean }>`
   border-radius: 8px;
   background-color: white;
   box-sizing: border-box;
-  ${BreakPoints.sm`
+  ${BreakPoints.media.sm`
     flex: none;
     padding: 24px;
     padding-bottom: calc(env(safe-area-inset-bottom) + 24px);
@@ -94,7 +92,7 @@ const Dialog = styled.div<{ isOpen: boolean }>`
   `};
   ${({ isOpen }) =>
     !isOpen &&
-    BreakPoints.sm`
+    BreakPoints.media.sm`
       transform: translateY(100%);
   `}
 `;

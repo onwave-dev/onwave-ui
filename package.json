@@ -73,5 +73,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "keen-slider": "^5.3.5"
+  }
 }
