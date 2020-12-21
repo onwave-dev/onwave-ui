@@ -7,4 +7,4 @@ export const globalStyle = css`
   ${zeroCSS};
 `;
 
-export const GlbalStyle = <Global styles={globalStyle} />;
+export const GlobalStyle = () => <Global styles={globalStyle} />;
