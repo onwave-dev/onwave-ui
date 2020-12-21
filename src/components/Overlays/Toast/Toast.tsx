@@ -23,7 +23,7 @@ export const Toast: React.FC<ToastProps> = ({
     }, 4500);
 
     if (dismiss) {
-      // setTimeout(dismiss, 5000);
+      setTimeout(dismiss, 5000);
     } else {
       throw Error("No dismiss prop!");
     }
