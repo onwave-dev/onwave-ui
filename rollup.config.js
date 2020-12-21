@@ -12,7 +12,7 @@ import visualizer from "rollup-plugin-visualizer";
 import pkg from "./package.json";
 
 const extensions = [".js", ".jsx", ".ts", ".tsx", ".css"];
-const dependencies = ["@ramonak/react-progress-bar"];
+const dependencies = [];
 
 const getPlugins = (format) => [
   external(),
