@@ -19,6 +19,11 @@ export const Swiper: React.FC<SwiperOptions & Props> = React.memo((props) => {
   );
 });
 
+Swiper.defaultProps = {
+  slides: ".oui-slide",
+  delay: 3000,
+};
+
 const Container = styled.div`
   overflow: hidden;
 `;
