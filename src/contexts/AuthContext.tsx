@@ -23,8 +23,9 @@ export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider: NextPage<{
   tokenName: string;
-  getToken: (refreshToken: string) => string;
-}> = ({ children, tokenName, getToken }) => {
+  tokenData?: string;
+  getToken: (refreshToken: string) => void;
+}> = ({ children, tokenName, tokenData, getToken }) => {
   const [token, setToken] = useState<string | undefined>();
   const [refreshToken, setRefreshToken] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -45,12 +46,18 @@ export const AuthProvider: NextPage<{
     const localRefreshToken = localStorage.getItem(tokenName);
     if (localRefreshToken) {
       setRefreshToken(localRefreshToken);
-      const token = getToken(localRefreshToken);
-      setToken(token);
+      getToken(localRefreshToken);
+    } else {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   }, []);
+
+  useEffect(() => {
+    if (tokenData) {
+      setToken(tokenData);
+      setIsLoading(false);
+    }
+  }, [tokenData]);
 
   return (
     <AuthContext.Provider
