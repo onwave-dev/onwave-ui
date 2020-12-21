@@ -1,22 +1,18 @@
 import { NextPage } from "next";
-import React, {
-  Dispatch,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 
 export type AuthState = {
   token: string | undefined;
+  refreshToken: string | undefined;
   isLoading: boolean;
   isLoggedIn: boolean;
-  setLoggedIn: Dispatch<string>;
-  setLoggedOut: Dispatch<void>;
+  setLoggedIn: (token: string, refreshToken: string) => void;
+  setLoggedOut: () => void;
 };
 
 const AuthContext = React.createContext<AuthState>({
   token: undefined,
+  refreshToken: undefined,
   isLoading: true,
   isLoggedIn: false,
   setLoggedIn: () => {},
@@ -25,33 +21,42 @@ const AuthContext = React.createContext<AuthState>({
 
 export const useAuthContext = () => useContext(AuthContext);
 
-export const AuthProvider: NextPage<{ tokenName: string }> = ({
-  children,
-  tokenName,
-}) => {
+export const AuthProvider: NextPage<{
+  tokenName: string;
+  getToken: (refreshToken: string) => string;
+}> = ({ children, tokenName, getToken }) => {
   const [token, setToken] = useState<string | undefined>();
+  const [refreshToken, setRefreshToken] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const setLoggedIn = useCallback((token: string) => {
-    localStorage.setItem(tokenName, token);
+
+  const setLoggedIn = useCallback((token: string, refreshToken: string) => {
+    localStorage.setItem(tokenName, refreshToken);
     setToken(token);
+    setRefreshToken(refreshToken);
   }, []);
+
   const setLoggedOut = useCallback(() => {
     localStorage.removeItem(tokenName);
     setToken(undefined);
+    setRefreshToken(undefined);
   }, []);
 
   useEffect(() => {
-    const localToken = localStorage.getItem(tokenName);
-    if (localToken) {
-      setLoggedIn(localToken);
+    const localRefreshToken = localStorage.getItem(tokenName);
+    if (localRefreshToken) {
+      setRefreshToken(localRefreshToken);
+      const token = getToken(localRefreshToken);
+      setToken(token);
     }
+
     setIsLoading(false);
-  }, [setLoggedIn]);
+  }, []);
 
   return (
     <AuthContext.Provider
       value={{
         token,
+        refreshToken,
         isLoading,
         isLoggedIn: Boolean(token),
         setLoggedOut,
