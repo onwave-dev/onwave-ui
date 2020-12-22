@@ -24,8 +24,9 @@ export const useAuthContext = () => useContext(AuthContext);
 export const AuthProvider: NextPage<{
   tokenName: string;
   tokenData?: string;
+  tokenError?: any;
   getToken: (refreshToken: string) => void;
-}> = ({ children, tokenName, tokenData, getToken }) => {
+}> = ({ children, tokenName, tokenData, tokenError, getToken }) => {
   const [token, setToken] = useState<string | undefined>();
   const [refreshToken, setRefreshToken] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -58,6 +59,12 @@ export const AuthProvider: NextPage<{
       setIsLoading(false);
     }
   }, [tokenData]);
+
+  useEffect(() => {
+    if (tokenError) {
+      setLoggedOut();
+    }
+  }, [tokenError]);
 
   return (
     <AuthContext.Provider

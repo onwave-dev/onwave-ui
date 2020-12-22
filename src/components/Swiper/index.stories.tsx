@@ -6,7 +6,7 @@ import { Color, typography } from "../../core";
 import { Slide } from "../Slide";
 
 export default {
-  title: "Swiper",
+  title: "components/Swiper",
   component: Swiper,
 } as Meta;
 
