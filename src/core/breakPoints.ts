@@ -12,28 +12,13 @@ const queryToCSS = (query: string) => (
   `;
 };
 
-export function buildMediaQuery(
-  { minWidth, maxWidth }: { minWidth?: number; maxWidth?: number },
-  not?: boolean
-): string {
-  let query = "@media ";
-
-  if (minWidth) {
-    query += `(min-width: ${minWidth}px)`;
-  }
-
-  if (minWidth && maxWidth) {
-    query += " and ";
-  }
-
-  if (maxWidth) {
-    query += `(max-width: ${maxWidth}px)`;
-  }
-
-  if (not) {
-    query = `not all and ${query}`;
-  }
-
+export function buildMediaQuery({
+  maxWidth,
+}: {
+  minWidth?: number;
+  maxWidth?: number;
+}): string {
+  const query = `@media only screen and (max-width: ${maxWidth}px)`;
   return query;
 }
 
