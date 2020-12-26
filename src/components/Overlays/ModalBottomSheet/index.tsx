@@ -67,7 +67,9 @@ export const ModalBottomSheet: React.FC<ModalBottomSheetProps> = ({
 const StyledOverlaidPortal = styled(OverlaidPortal)<{ isOpen: boolean }>`
   transition: ${({ isOpen }) => !isOpen && `visibility 0s linear 225ms,`}
     opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  ${`${BreakPoints.media.sm}`};
+  ${BreakPoints.media.sm`
+    justify-content: flex-end;
+  `};
 `;
 
 const Dialog = styled.div<{ isOpen: boolean }>`
