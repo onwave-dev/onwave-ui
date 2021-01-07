@@ -4,7 +4,7 @@ import React from "react";
 import { DynamicLink } from "../DynamicLink";
 
 interface Props {
-  as?: "a" | "button";
+  as?: React.ElementType;
   href?: string;
   onClick?: () => void;
 }
@@ -17,7 +17,7 @@ export const DropdownItem: NextPage<Props> = ({
 }) => {
   if (href) {
     return (
-      <DynamicLink href={href} passHref>
+      <DynamicLink href={href}>
         <Wrapper as={as}>{children}</Wrapper>
       </DynamicLink>
     );
@@ -29,8 +29,6 @@ export const DropdownItem: NextPage<Props> = ({
     );
   }
 };
-
-DropdownItem.defaultProps = { as: "a" };
 
 const Wrapper = styled.a`
   display: block;
