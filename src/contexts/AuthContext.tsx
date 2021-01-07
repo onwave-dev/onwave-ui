@@ -25,16 +25,21 @@ export const AuthProvider: NextPage<{
   tokenName: string;
   tokenData?: string;
   tokenError?: any;
-  getToken: (refreshToken: string) => void;
+  getToken?: (refreshToken: string) => void;
 }> = ({ children, tokenName, tokenData, tokenError, getToken }) => {
   const [token, setToken] = useState<string | undefined>();
   const [refreshToken, setRefreshToken] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const setLoggedIn = useCallback((token: string, refreshToken: string) => {
-    localStorage.setItem(tokenName, refreshToken);
-    setToken(token);
-    setRefreshToken(refreshToken);
+    if (getToken) {
+      localStorage.setItem(tokenName, refreshToken);
+      setToken(token);
+      setRefreshToken(refreshToken);
+    } else {
+      localStorage.setItem(tokenName, token);
+      setToken(token);
+    }
   }, []);
 
   const setLoggedOut = useCallback(() => {
@@ -44,12 +49,21 @@ export const AuthProvider: NextPage<{
   }, []);
 
   useEffect(() => {
-    const localRefreshToken = localStorage.getItem(tokenName);
-    if (localRefreshToken) {
-      setRefreshToken(localRefreshToken);
-      getToken(localRefreshToken);
+    if (getToken) {
+      const localRefreshToken = localStorage.getItem(tokenName);
+      if (localRefreshToken) {
+        setRefreshToken(localRefreshToken);
+        getToken(localRefreshToken);
+      } else {
+        setIsLoading(false);
+      }
     } else {
-      setIsLoading(false);
+      const localToken = localStorage.getItem(tokenName);
+      if (localToken) {
+        setToken(localToken);
+      } else {
+        setIsLoading(false);
+      }
     }
   }, []);
 
