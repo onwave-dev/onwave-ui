@@ -1,4 +1,6 @@
 export * from "./Button";
+export * from "./Dropdown";
+export * from "./DynamicLink";
 export * from "./GlobalStyle";
 export * from "./Image";
 export * from "./Overlays";
