@@ -21,7 +21,7 @@ const AuthContext = React.createContext<AuthState>({
 
 export const useAuthContext = () => useContext(AuthContext);
 
-export const AuthProvider: NextPage<{
+export const AuthProvider: React.FC<{
   tokenName: string;
   tokenData?: string;
   tokenError?: any;
