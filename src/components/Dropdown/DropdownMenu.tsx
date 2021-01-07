@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import React, { forwardRef } from "react";
+import React, { forwardRef, ReactNode } from "react";
 
 type Props = {
+  children: ReactNode;
   isOpen: boolean;
   position?: "left" | "right";
 };
