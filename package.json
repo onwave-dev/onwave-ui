@@ -1,6 +1,6 @@
 {
   "name": "@onwave/ui",
-  "version": "1.5.13",
+  "version": "1.5.14",
   "description": "onwave ui library",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
