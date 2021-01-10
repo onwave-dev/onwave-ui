@@ -96,12 +96,15 @@ export const AuthProvider: React.FC<{
   );
 };
 
-export const ProtectRoute: NextPage<{ LoginComponent: React.FC }> = ({
-  children,
-  LoginComponent,
-}) => {
+export const ProtectRoute: NextPage<{
+  LoginComponent: React.FC;
+  LoadingComponent?: React.FC;
+}> = ({ children, LoginComponent, LoadingComponent }) => {
   const { isLoggedIn, isLoading } = useAuthContext();
-  if (isLoading || (!isLoggedIn && window.location.pathname !== "/login")) {
+  if (isLoading) {
+    return LoadingComponent ? <LoadingComponent /> : <></>;
+  }
+  if (!isLoggedIn && window.location.pathname !== "/login") {
     return <LoginComponent />;
   }
   return <>{children}</>;
