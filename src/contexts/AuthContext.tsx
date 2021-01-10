@@ -6,7 +6,7 @@ export type AuthState = {
   refreshToken: string | undefined;
   isLoading: boolean;
   isLoggedIn: boolean;
-  setLoggedIn: (token: string, refreshToken: string) => void;
+  setLoggedIn: (token: string, refreshToken?: string) => void;
   setLoggedOut: () => void;
 };
 
@@ -31,8 +31,8 @@ export const AuthProvider: React.FC<{
   const [refreshToken, setRefreshToken] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const setLoggedIn = useCallback((token: string, refreshToken: string) => {
-    if (getToken) {
+  const setLoggedIn = useCallback((token: string, refreshToken?: string) => {
+    if (refreshToken) {
       localStorage.setItem(tokenName, refreshToken);
       setToken(token);
       setRefreshToken(refreshToken);
