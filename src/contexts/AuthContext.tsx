@@ -68,6 +68,12 @@ export const AuthProvider: React.FC<{
   }, []);
 
   useEffect(() => {
+    if (token) {
+      setIsLoading(false);
+    }
+  }, [token, setIsLoading]);
+
+  useEffect(() => {
     if (tokenData) {
       setToken(tokenData);
       setIsLoading(false);
