@@ -59,7 +59,7 @@ const ToasterContainer = styled.div``;
 
 const TopToastsContainer = styled.div`
   position: fixed;
-  top: 100px;
+  top: 24px;
   left: 50%;
   width: auto;
   transform: translateX(-50%);
