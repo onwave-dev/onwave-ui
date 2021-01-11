@@ -25,3 +25,11 @@ yarn add @onwave/ui
 ## storybook
 
 <a href="https://ui.onwave.xyz">https://ui.onwave.xyz</a>
+
+## notes
+
+If you want to use `next/link` normally, use `Link Provider`.
+
+```JSX
+<LinkProvider type="next">
+```
