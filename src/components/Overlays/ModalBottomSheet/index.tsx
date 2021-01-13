@@ -110,6 +110,9 @@ const DialogTitle = styled.h2`
   flex: auto;
   white-space: pre-line;
   word-break: break-all;
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 12px;
 `;
 
 const DialogBody = styled.div`
