@@ -8,4 +8,5 @@ export * from "./Image";
 export * from "./Overlays";
 export * from "./Progress";
 export * from "./Slide";
+export * from "./Spinner";
 export * from "./Swiper";
