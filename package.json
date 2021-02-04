@@ -24,7 +24,7 @@
     "test": "yarn && yarn build && rm -rf node_modules/react/ && rm -rf node_modules/react-dom",
     "build": "tsc && rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
